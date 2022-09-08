@@ -1,0 +1,53 @@
+import type {
+    ActionFunction,
+    ErrorBoundaryComponent,
+    HtmlMetaDescriptor,
+    LinkDescriptor,
+    LinksFunction,
+    LoaderFunction,
+    MetaFunction,
+} from "@remix-run/node"
+import {json, redirect} from "@remix-run/node"
+import {useCatch, useParams} from "@remix-run/react"
+
+const links: LinksFunction = () => {
+    const links: LinkDescriptor[] = []
+    return links
+}
+
+const meta: MetaFunction = () => {
+    const meta: HtmlMetaDescriptor = {}
+    return meta
+}
+
+type LoaderData = {}
+
+const loader: LoaderFunction = async ({request, params}) => {
+    const data: LoaderData = {}
+    return json<LoaderData>(data)
+}
+
+const action: ActionFunction = async ({request, params}) => {
+    return redirect("/")
+}
+
+const FooRoute = () => {
+    return <h2>FooRoute</h2>
+}
+
+const CatchBoundary = () => {
+    const caught = useCatch()
+    const params = useParams()
+
+    return <p>Something went wrong.</p>
+}
+
+const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
+    console.log(error)
+
+    const params = useParams()
+    return <p>Something went wrong.</p>
+}
+
+export default FooRoute
+export {action, CatchBoundary, ErrorBoundary, links, loader, meta}
