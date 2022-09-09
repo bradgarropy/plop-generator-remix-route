@@ -1,4 +1,4 @@
-import {NodePlopAPI} from "node-plop"
+import {NodePlopAPI} from "plop"
 
 import route from "./route"
 
@@ -7,4 +7,4 @@ const generator = (plop: NodePlopAPI): void => {
     plop.setGenerator("route", route)
 }
 
-export default generator
+export = generator

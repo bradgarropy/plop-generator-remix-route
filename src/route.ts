@@ -16,4 +16,4 @@ const route = {
     ],
 }
 
-export default route
+export = route

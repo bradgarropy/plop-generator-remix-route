@@ -36,6 +36,7 @@
     "scripts": {
         "start": "tsc --watch",
         "build": "tsc",
+        "postbuild": "cp -r src/templates dist/templates",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
         "format": "prettier --check .",
@@ -44,6 +45,9 @@
         "test:watch": "jest --passWithNoTests --watch",
         "contributors": "all-contributors generate",
         "prepare": "npm run build"
+    },
+    "dependencies": {
+        "plop": "^3.1.1"
     },
     "devDependencies": {
         "@bradgarropy/eslint-config": "^1.1.0",
@@ -65,8 +69,5 @@
     },
     "engines": {
         "node": ">=10"
-    },
-    "dependencies": {
-        "node-plop": "^0.31.0"
     }
 }
