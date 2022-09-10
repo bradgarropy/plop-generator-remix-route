@@ -1,25 +1,52 @@
 import type {
+{{#includes features "action"}}
     ActionFunction,
+{{/includes}}
+{{#includes features "error"}}
     ErrorBoundaryComponent,
+{{/includes}}
+{{#includes features "meta"}}
     HtmlMetaDescriptor,
+{{/includes}}
+{{#includes features "links"}}
     LinkDescriptor,
     LinksFunction,
+{{/includes}}
+{{#includes features "loader"}}
     LoaderFunction,
+{{/includes}}
+{{#includes features "meta"}}
     MetaFunction,
+{{/includes}}
 } from "@remix-run/node"
-import {json, redirect} from "@remix-run/node"
+import {
+{{#includes features "loader"}}
+    json,
+{{/includes}}
+{{#includes features "action"}}
+    redirect
+{{/includes}}
+} from "@remix-run/node"
+{{#includes features "catch"}}
 import {useCatch, useParams} from "@remix-run/react"
+{{/includes}}
+import {FC} from "react"
 
+{{#includes features "links"}}
 const links: LinksFunction = () => {
     const links: LinkDescriptor[] = []
     return links
 }
 
+{{/includes}}
+{{#includes features "links"}}
 const meta: MetaFunction = () => {
     const meta: HtmlMetaDescriptor = {}
     return meta
 }
 
+{{/includes}}
+{{#includes features "loader"}}
 type LoaderData = {}
 
 const loader: LoaderFunction = async ({request, params}) => {
@@ -27,14 +54,18 @@ const loader: LoaderFunction = async ({request, params}) => {
     return json<LoaderData>(data)
 }
 
+{{/includes}}
+{{#includes features "action"}}
 const action: ActionFunction = async ({request, params}) => {
     return redirect("/")
 }
 
-const {{pascalCase name}}Route = () => {
+{{/includes}}
+const {{pascalCase name}}Route: FC = () => {
     return <h2>{{pascalCase name}}Route</h2>
 }
 
+{{#includes features "catch"}}
 const CatchBoundary = () => {
     const caught = useCatch()
     const params = useParams()
@@ -42,6 +73,8 @@ const CatchBoundary = () => {
     return <p>Something went wrong.</p>
 }
 
+{{/includes}}
+{{#includes features "error"}}
 const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
     console.log(error)
 
@@ -49,5 +82,25 @@ const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
     return <p>Something went wrong.</p>
 }
 
+{{/includes}}
 export default {{pascalCase name}}Route
-export {action, CatchBoundary, ErrorBoundary, links, loader, meta}
+export {
+{{#includes features "action"}}
+    action,
+{{/includes}}
+{{#includes features "catch"}}
+    CatchBoundary,
+{{/includes}}
+{{#includes features "error"}}
+    ErrorBoundary,
+{{/includes}}
+{{#includes features "links"}}
+    links,
+{{/includes}}
+{{#includes features "loader"}}
+    loader,
+{{/includes}}
+{{#includes features "meta"}}
+    meta
+{{/includes}}
+}
