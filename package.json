@@ -1,6 +1,6 @@
 {
     "name": "@bradgarropy/plop-generator-remix-route",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "💧 plop generator remix route",
     "keywords": [
         "node",
