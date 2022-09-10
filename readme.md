@@ -12,8 +12,6 @@
 
 _A [`plop`][plop] generator for [`Remix`][remix] routes._
 
-// TODO: write intro section.
-
 ## 📦 Installation
 
 This package is hosted on [npm][npm].
@@ -24,11 +22,26 @@ npm install @bradgarropy/plop-generator-remix-route
 
 ## 🥑 Usage
 
-// TODO: Write usage section.
+First, be sure you have [`plop`][plop] installed. Then, add the following line to your `plopfile.js`.
 
-## 📖 API Reference
+```javascript
+plop.load("@bradgarropy/plop-generator-remix-route")
+```
 
-// TODO: Write api reference section.
+Now you'll have access to the `route` generator as shown below.
+
+```bash
+plop route
+```
+
+The `route` generator creates a route file under `app/routes` with the following optional additions.
+
+-   Links Function
+-   Meta Function
+-   Loader Function
+-   Action Function
+-   Catch Boundary
+-   Error Boundary
 
 ## ❔ Questions
 
