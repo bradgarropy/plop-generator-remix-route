@@ -47,6 +47,7 @@
         "prepare": "npm run build"
     },
     "dependencies": {
+        "@bradgarropy/plop-helper-includes": "^1.0.0",
         "plop": "^3.1.1"
     },
     "devDependencies": {
