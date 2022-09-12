@@ -5,8 +5,14 @@
 .cache
 node_modules
 
+# templates
+src/templates/*.hbs
+
 # build
 dist
+example/api
+example/app/styles/tailwind.css
+example/public/build
 
 # test
 coverage
